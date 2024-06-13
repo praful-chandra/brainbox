@@ -1,14 +1,14 @@
 import {
   pgTable,
+  foreignKey,
   pgEnum,
   uuid,
-  timestamp,
   text,
   boolean,
-  foreignKey,
   jsonb,
   bigint,
   integer,
+  timestamp,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
@@ -29,6 +29,11 @@ export const one_time_token_type = pgEnum("one_time_token_type", [
   "email_change_token_new",
   "email_change_token_current",
   "phone_change_token",
+]);
+export const request_status = pgEnum("request_status", [
+  "PENDING",
+  "SUCCESS",
+  "ERROR",
 ]);
 export const key_status = pgEnum("key_status", [
   "default",
@@ -82,6 +87,84 @@ export const equality_op = pgEnum("equality_op", [
   "in",
 ]);
 
+export const customers = pgTable("customers", {
+  id: uuid("id")
+    .notNull()
+    .references(() => users.id),
+  stripe_customer_id: text("stripe_customer_id"),
+});
+
+export const products = pgTable("products", {
+  id: text("id").notNull(),
+  active: boolean("active"),
+  name: text("name"),
+  description: text("description"),
+  image: text("image"),
+  metadata: jsonb("metadata"),
+});
+
+export const prices = pgTable("prices", {
+  id: text("id").notNull(),
+  product_id: text("product_id"),
+  active: boolean("active"),
+  description: text("description"),
+  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
+  unit_amount: bigint("unit_amount", { mode: "number" }),
+  currency: text("currency"),
+  type: pricing_type("type"),
+  interval: pricing_plan_interval("interval"),
+  interval_count: integer("interval_count"),
+  trial_period_days: integer("trial_period_days"),
+  metadata: jsonb("metadata"),
+});
+
+export const subscriptions = pgTable("subscriptions", {
+  id: text("id").notNull(),
+  user_id: uuid("user_id")
+    .notNull()
+    .references(() => users.id),
+  status: subscription_status("status"),
+  metadata: jsonb("metadata"),
+  price_id: text("price_id"),
+  quantity: integer("quantity"),
+  cancel_at_period_end: boolean("cancel_at_period_end"),
+  created: timestamp("created", { withTimezone: true, mode: "string" })
+    .default(sql`now()`)
+    .notNull(),
+  current_period_start: timestamp("current_period_start", {
+    withTimezone: true,
+    mode: "string",
+  })
+    .default(sql`now()`)
+    .notNull(),
+  current_period_end: timestamp("current_period_end", {
+    withTimezone: true,
+    mode: "string",
+  })
+    .default(sql`now()`)
+    .notNull(),
+  ended_at: timestamp("ended_at", {
+    withTimezone: true,
+    mode: "string",
+  }).default(sql`now()`),
+  cancel_at: timestamp("cancel_at", {
+    withTimezone: true,
+    mode: "string",
+  }).default(sql`now()`),
+  canceled_at: timestamp("canceled_at", {
+    withTimezone: true,
+    mode: "string",
+  }).default(sql`now()`),
+  trial_start: timestamp("trial_start", {
+    withTimezone: true,
+    mode: "string",
+  }).default(sql`now()`),
+  trial_end: timestamp("trial_end", {
+    withTimezone: true,
+    mode: "string",
+  }).default(sql`now()`),
+});
+
 export const workspaces = pgTable("workspaces", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
   created_at: timestamp("created_at", { withTimezone: true, mode: "string" }),
@@ -128,13 +211,13 @@ export const folders = pgTable("folders", {
 export const users = pgTable(
   "users",
   {
-    id: uuid("id").primaryKey().notNull(),
+    id: uuid("id").notNull(),
     full_name: text("full_name"),
     avatar_url: text("avatar_url"),
     billing_address: jsonb("billing_address"),
-    updated_at: timestamp("updated_at", { withTimezone: true, mode: "string" }),
     payment_method: jsonb("payment_method"),
     email: text("email"),
+    updated_at: timestamp("updated_at", { mode: "string" }),
   },
   (table) => {
     return {
@@ -146,82 +229,3 @@ export const users = pgTable(
     };
   }
 );
-
-export const customers = pgTable("customers", {
-  id: uuid("id")
-    .primaryKey()
-    .notNull()
-    .references(() => users.id),
-  stripe_customer_id: text("stripe_customer_id"),
-});
-
-export const products = pgTable("products", {
-  id: text("id").primaryKey().notNull(),
-  active: boolean("active"),
-  name: text("name"),
-  description: text("description"),
-  image: text("image"),
-  metadata: jsonb("metadata"),
-});
-
-export const prices = pgTable("prices", {
-  id: text("id").primaryKey().notNull(),
-  product_id: text("product_id").references(() => products.id),
-  active: boolean("active"),
-  description: text("description"),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  unit_amount: bigint("unit_amount", { mode: "number" }),
-  currency: text("currency"),
-  type: pricing_type("type"),
-  interval: pricing_plan_interval("interval"),
-  interval_count: integer("interval_count"),
-  trial_period_days: integer("trial_period_days"),
-  metadata: jsonb("metadata"),
-});
-
-export const subscriptions = pgTable("subscriptions", {
-  id: text("id").primaryKey().notNull(),
-  user_id: uuid("user_id")
-    .notNull()
-    .references(() => users.id),
-  status: subscription_status("status"),
-  metadata: jsonb("metadata"),
-  price_id: text("price_id").references(() => prices.id),
-  quantity: integer("quantity"),
-  cancel_at_period_end: boolean("cancel_at_period_end"),
-  created: timestamp("created", { withTimezone: true, mode: "string" })
-    .default(sql`now()`)
-    .notNull(),
-  current_period_start: timestamp("current_period_start", {
-    withTimezone: true,
-    mode: "string",
-  })
-    .default(sql`now()`)
-    .notNull(),
-  current_period_end: timestamp("current_period_end", {
-    withTimezone: true,
-    mode: "string",
-  })
-    .default(sql`now()`)
-    .notNull(),
-  ended_at: timestamp("ended_at", {
-    withTimezone: true,
-    mode: "string",
-  }).default(sql`now()`),
-  cancel_at: timestamp("cancel_at", {
-    withTimezone: true,
-    mode: "string",
-  }).default(sql`now()`),
-  canceled_at: timestamp("canceled_at", {
-    withTimezone: true,
-    mode: "string",
-  }).default(sql`now()`),
-  trial_start: timestamp("trial_start", {
-    withTimezone: true,
-    mode: "string",
-  }).default(sql`now()`),
-  trial_end: timestamp("trial_end", {
-    withTimezone: true,
-    mode: "string",
-  }).default(sql`now()`),
-});

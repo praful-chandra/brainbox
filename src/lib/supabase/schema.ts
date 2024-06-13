@@ -8,7 +8,7 @@ import {
   timestamp,
   uuid,
 } from "drizzle-orm/pg-core";
-import { users, subscription_status, prices } from "../../../migrations/schema";
+import { users, subscription_status } from "../../../migrations/schema";
 
 export const workspaces = pgTable("workspaces", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
@@ -63,13 +63,13 @@ export const files = pgTable("files", {
 });
 
 export const subscriptions = pgTable("subscriptions", {
-  id: text("id").primaryKey().notNull(),
+  id: text("id").notNull(),
   user_id: uuid("user_id")
     .notNull()
     .references(() => users.id),
   status: subscription_status("status"),
   metadata: jsonb("metadata"),
-  price_id: text("price_id").references(() => prices.id),
+  price_id: text("price_id"),
   quantity: integer("quantity"),
   cancel_at_period_end: boolean("cancel_at_period_end"),
   created: timestamp("created", { withTimezone: true, mode: "string" })

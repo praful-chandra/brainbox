@@ -1,6 +1,6 @@
 {
-  "id": "4e2a97f7-280f-400b-a19b-8f37044b9781",
-  "prevId": "d8d50fd6-06b7-4729-bb81-5263bf64c43e",
+  "id": "8da14b73-1230-418b-84e4-54b7db0a4b19",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -125,8 +125,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "icon_id": {
-          "name": "icon_id",
+        "icon_idd": {
+          "name": "icon_idd",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -210,8 +210,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "icon_id": {
-          "name": "icon_id",
+        "icon_idssss": {
+          "name": "icon_idssss",
           "type": "text",
           "primaryKey": false,
           "notNull": true
