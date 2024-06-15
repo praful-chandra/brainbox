@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import typographyStyles from "./themeConfigs/typography";
+/** @type {import('tailwindcss').Config} */
 
 const config = {
   darkMode: ["class"],
@@ -25,12 +27,12 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#f7fdbf",
+          foreground: "#fafafa",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#161616",
+          foreground: "#fafafa",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -53,10 +55,54 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          primary: "#f7fdbf",
-          secondary: "#161616",
-          accent: "#f0fd81",
-          fill: "#8295fd",
+          primary: {
+            "50": "#fefff9",
+            "100": "#fdfeeb",
+            "200": "#fbfee2",
+            "300": "#fafed4",
+            "400": "#f9fdcc",
+            "500": "#f7fdbf",
+            "600": "#e1e6ae",
+            "700": "#afb488",
+            "800": "#888b69",
+            "900": "#686a50",
+          },
+          secondary: {
+            "50": "#e8e8e8",
+            "100": "#b7b7b7",
+            "200": "#949494",
+            "300": "#636363",
+            "400": "#454545",
+            "500": "#161616",
+            "600": "#141414",
+            "700": "#101010",
+            "800": "#0c0c0c",
+            "900": "#090909",
+          },
+          accent: {
+            "50": "#fefff2",
+            "100": "#fafed8",
+            "200": "#f8fec5",
+            "300": "#f5feab",
+            "400": "#f3fd9a",
+            "500": "#f0fd81",
+            "600": "#dae675",
+            "700": "#aab45c",
+            "800": "#848b47",
+            "900": "#656a36",
+          },
+          fill: {
+            "50": "#f3f4ff",
+            "100": "#d8defe",
+            "200": "#c6cefe",
+            "300": "#abb8fe",
+            "400": "#9baafd",
+            "500": "#8295fd",
+            "600": "#7688e6",
+            "700": "#5c6ab4",
+            "800": "#48528b",
+            "900": "#373f6a",
+          },
           dark: "#051028",
           light: "#fafafa",
         },
@@ -75,7 +121,7 @@ const config = {
           "12": "#192339",
           "13": "#051028",
         },
-        Light: {
+        light: {
           "50": "#ffffff",
           "100": "#fdfdfd",
           "200": "#fdfdfd",
@@ -107,9 +153,19 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sourceSans3: ["SourceSans3", "sans-serif"],
+      },
     },
+
+    typography: typographyStyles,
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography")({
+      className: "typo",
+    }),
+  ],
 } satisfies Config;
 
 export default config;

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import db from "../lib/supabase/db";
+// import db from "../lib/supabase/db";
 import { ThemeProvider } from "@/lib/providers/nextThemeProvider";
-db;
+import { cn } from "@/lib/utils";
+// db;
 
-const inter = Inter({ subsets: ["latin"] });
+const SourceSans3 = Source_Sans_3({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          SourceSans3.className,
+          "bg-brand-light text-brand-secondary-500"
+        )}
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
         </ThemeProvider>
