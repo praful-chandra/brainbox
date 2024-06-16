@@ -64,6 +64,14 @@ const typographyStyles = {
       },
     ],
   },
+  "mobile-h5": {
+    css: [
+      {
+        fontSize: "1.6rem",
+        fontWeight: 400,
+      },
+    ],
+  },
   "desktop-p": {
     css: [
       {

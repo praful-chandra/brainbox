@@ -11,14 +11,14 @@ type TitleSectionProps = {
 
 const TitleSection = () => {
   return (
-    <div className="flex flex-col gap-9  items-center justify-center">
+    <div className="container flex flex-col gap-9  items-center justify-center">
       <Pill label="Elevate Your Workspace Experience" leftIcon="rocket" />
       <h1 className="typo-desktop-h1">Maximize Efficiency Minimize Hassle</h1>
       <h5 className="typo-desktop-h5 text-brand-secondary-200">
         Your All-in-One Workspace Solution
       </h5>
       <Button size="lg" rightIcon="filledRightArrow">
-        Get BrainB/ Free
+        Get BrainBox Free
       </Button>
 
       <Image
