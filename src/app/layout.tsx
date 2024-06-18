@@ -4,7 +4,8 @@ import "./globals.css";
 // import db from "../lib/supabase/db";
 import { ThemeProvider } from "@/lib/providers/nextThemeProvider";
 import { cn } from "@/lib/utils";
-// db;
+import db from "@/lib/supabase/db";
+db;
 
 const SourceSans3 = Source_Sans_3({ subsets: ["latin"] });
 
