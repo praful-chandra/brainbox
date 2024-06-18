@@ -53,13 +53,15 @@ const TestimonialSection = () => {
   return (
     <div className="my-28 container flex flex-col gap-9  items-center justify-center text-center">
       <Pill label="Testimonials" />
-      <h1 className="typo-desktop-h1">Trusted by all</h1>
-      <h5 className="typo-desktop-h5 text-brand-secondary-200 w-2/4">
+      <h1 className="typo-mobile-h3 md:typo-mobile-h2 xl:typo-desktop-h2">
+        Trusted by all
+      </h1>
+      <h5 className="typo-mobile-h5  xl:typo-desktop-h5 text-brand-secondary-200 w-3/4 md:w-2/4">
         Join thousands of satisfied users who rely on our platform for their
         personal and professional productivity needs.
       </h5>
 
-      <div className="grid m-auto grid-cols-3  gap-4 mt-32">
+      <div className="grid m-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 mt-32">
         {testimonialData.map((td) => (
           <SingleTestimonial testimonial={td} key={td.author} />
         ))}

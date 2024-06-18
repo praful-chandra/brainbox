@@ -32,10 +32,26 @@ const typographyStyles = {
       },
     ],
   },
+  "mobile-h1": {
+    css: [
+      {
+        fontSize: "4.5rem",
+        fontWeight: 700,
+      },
+    ],
+  },
   "desktop-h2": {
     css: [
       {
         fontSize: "5.5rem",
+        fontWeight: 700,
+      },
+    ],
+  },
+  "mobile-h2": {
+    css: [
+      {
+        fontSize: "3.6rem",
         fontWeight: 700,
       },
     ],
@@ -48,10 +64,26 @@ const typographyStyles = {
       },
     ],
   },
+  "mobile-h3": {
+    css: [
+      {
+        fontSize: "2.5rem",
+        fontWeight: 700,
+      },
+    ],
+  },
   "desktop-h4": {
     css: [
       {
         fontSize: "3.5rem",
+        fontWeight: 500,
+      },
+    ],
+  },
+  "mobile-h4": {
+    css: [
+      {
+        fontSize: "1.8rem",
         fontWeight: 500,
       },
     ],
@@ -76,6 +108,14 @@ const typographyStyles = {
     css: [
       {
         fontSize: "1.6rem",
+        fontWeight: 400,
+      },
+    ],
+  },
+  "mobile-p": {
+    css: [
+      {
+        fontSize: "1.4rem",
         fontWeight: 400,
       },
     ],

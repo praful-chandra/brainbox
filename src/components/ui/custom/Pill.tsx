@@ -10,7 +10,7 @@ type PillProps = {
 const Pill = ({ label, leftIcon, rightIcon }: PillProps) => {
   return (
     <div
-      className="border rounded-full text-brand-secondary-500 p-px typo-desktop-p
+      className="border rounded-full text-brand-secondary-500 p-px typo-mobile-p md:typo-desktop-p
     bg-gradient-to-r from-brand-fill-500 to-brand-dark
     "
     >
