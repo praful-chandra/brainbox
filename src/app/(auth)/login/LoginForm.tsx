@@ -2,6 +2,7 @@ import { TextInput } from '@/components/common/formFields';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { LoginFormType } from '@/formData/loginFormData';
+import { loginAction } from '@/serverActions/authActions';
 import React from 'react';
 import { UseFormReturn } from 'react-hook-form';
 
@@ -11,12 +12,7 @@ type LoginFormProps = {
 
 const LoginForm = ({ loginFormMethods }: LoginFormProps) => {
   const handleFormSubmit = async (vals: LoginFormType) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log(vals);
-        resolve(vals);
-      }, 1000);
-    });
+    return loginAction(vals);
   };
 
   return (

@@ -25,7 +25,7 @@ const LoginPage = () => {
 
   return (
     <section className="w-[100vw] h-[100vh] flex items-center justify-center flex-col gap-10">
-      <div className="flex items-center justify-center flex-col gap-10 min-w-[40rem]">
+      <div className="flex items-center justify-center flex-col gap-10 w-[90vw] max-w-[40rem]">
         <div className="flex items-center justify-center flex-col gap-5">
           <Link href="/">
             <Image
