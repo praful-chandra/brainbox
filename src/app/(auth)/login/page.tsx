@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { createClient } from "@/lib/supabase/client";
-import React from "react";
+import { createClient } from '@/lib/supabase/client';
+import React from 'react';
 
 const LoginPage = () => {
   return <div>LoginPage</div>;
