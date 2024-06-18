@@ -2,7 +2,7 @@ const typographyStyles = {
   large: {
     css: [
       {
-        fontSize: "5.5rem",
+        fontSize: '5.5rem',
         fontWeight: 400,
       },
     ],
@@ -10,7 +10,7 @@ const typographyStyles = {
   caption: {
     css: [
       {
-        fontSize: "1.4rem",
+        fontSize: '1.4rem',
         fontWeight: 300,
       },
     ],
@@ -18,104 +18,112 @@ const typographyStyles = {
   largeButton: {
     css: [
       {
-        fontSize: "2.6rem",
+        fontSize: '2.6rem',
+        fontWeight: 300,
+      },
+    ],
+  },
+  textInput: {
+    css: [
+      {
+        fontSize: '2rem',
         fontWeight: 300,
       },
     ],
   },
 
-  "desktop-h1": {
+  'desktop-h1': {
     css: [
       {
-        fontSize: "6.2rem",
+        fontSize: '6.2rem',
         fontWeight: 700,
       },
     ],
   },
-  "mobile-h1": {
+  'mobile-h1': {
     css: [
       {
-        fontSize: "4.5rem",
+        fontSize: '4.5rem',
         fontWeight: 700,
       },
     ],
   },
-  "desktop-h2": {
+  'desktop-h2': {
     css: [
       {
-        fontSize: "5.5rem",
+        fontSize: '5.5rem',
         fontWeight: 700,
       },
     ],
   },
-  "mobile-h2": {
+  'mobile-h2': {
     css: [
       {
-        fontSize: "3.6rem",
+        fontSize: '3.6rem',
         fontWeight: 700,
       },
     ],
   },
-  "desktop-h3": {
+  'desktop-h3': {
     css: [
       {
-        fontSize: "4.5rem",
+        fontSize: '4.5rem',
         fontWeight: 700,
       },
     ],
   },
-  "mobile-h3": {
+  'mobile-h3': {
     css: [
       {
-        fontSize: "2.5rem",
+        fontSize: '2.5rem',
         fontWeight: 700,
       },
     ],
   },
-  "desktop-h4": {
+  'desktop-h4': {
     css: [
       {
-        fontSize: "3.5rem",
+        fontSize: '3.5rem',
         fontWeight: 500,
       },
     ],
   },
-  "mobile-h4": {
+  'mobile-h4': {
     css: [
       {
-        fontSize: "1.8rem",
+        fontSize: '1.8rem',
         fontWeight: 500,
       },
     ],
   },
-  "desktop-h5": {
+  'desktop-h5': {
     css: [
       {
-        fontSize: "2.5rem",
+        fontSize: '2.5rem',
         fontWeight: 400,
       },
     ],
   },
-  "mobile-h5": {
+  'mobile-h5': {
     css: [
       {
-        fontSize: "1.6rem",
+        fontSize: '1.6rem',
         fontWeight: 400,
       },
     ],
   },
-  "desktop-p": {
+  'desktop-p': {
     css: [
       {
-        fontSize: "1.6rem",
+        fontSize: '1.6rem',
         fontWeight: 400,
       },
     ],
   },
-  "mobile-p": {
+  'mobile-p': {
     css: [
       {
-        fontSize: "1.4rem",
+        fontSize: '1.4rem',
         fontWeight: 400,
       },
     ],

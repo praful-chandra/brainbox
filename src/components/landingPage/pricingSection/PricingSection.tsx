@@ -1,6 +1,6 @@
-import Pill from "@/components/ui/custom/Pill";
-import React from "react";
-import PriceCard from "./PriceCard";
+import Pill from '@/components/common/Pill';
+import React from 'react';
+import PriceCard from './PriceCard';
 
 const PricingSection = () => {
   return (

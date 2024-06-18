@@ -1,7 +1,7 @@
-import React from "react";
-import Pill from "../ui/custom/Pill";
-import { Button } from "../ui/button";
-import Image from "next/image";
+import React from 'react';
+import Pill from '@/components/common/Pill';
+import { Button } from '../ui/button';
+import Image from 'next/image';
 
 type FeatureSectionProps = {
   title: string;

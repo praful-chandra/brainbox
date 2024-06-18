@@ -1,5 +1,6 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+import { TestimonialDataType } from './types';
 
 type SingleTestimonialProps = {
   testimonial: TestimonialDataType;

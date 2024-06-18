@@ -1,7 +1,8 @@
-import React from "react";
-import Pill from "../ui/custom/Pill";
-import { Button } from "../ui/button";
-import Image from "next/image";
+import React from 'react';
+import Pill from '@/components/common/Pill';
+import { Button } from '../ui/button';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type TitleSectionProps = {
   title: string;
@@ -19,9 +20,11 @@ const TitleSection = () => {
       <h5 className="typo-mobile-h5  xl:typo-desktop-h5 text-brand-secondary-200">
         Your All-in-One Workspace Solution
       </h5>
-      <Button size="lg" rightIcon="filledRightArrow">
-        Get BrainBox Free
-      </Button>
+      <Link href="/login">
+        <Button size="lg" rightIcon="filledRightArrow">
+          Get BrainBox Free
+        </Button>
+      </Link>
 
       <Image
         src="/assets/landingAssets/brainboxHeroImage.png"

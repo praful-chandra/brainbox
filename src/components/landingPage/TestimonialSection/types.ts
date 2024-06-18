@@ -1,4 +1,4 @@
-type TestimonialDataType = {
+export type TestimonialDataType = {
   author: string;
   text: string;
   rating: number;
