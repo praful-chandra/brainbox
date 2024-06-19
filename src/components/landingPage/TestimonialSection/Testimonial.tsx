@@ -52,7 +52,10 @@ const testimonialData: TestimonialDataType[] = [
 
 const TestimonialSection = () => {
   return (
-    <div className="my-28 container flex flex-col gap-9  items-center justify-center text-center">
+    <div
+      id="testimonials"
+      className="my-28 container flex flex-col gap-9  items-center justify-center text-center"
+    >
       <Pill label="Testimonials" />
       <h1 className="typo-mobile-h3 md:typo-mobile-h2 xl:typo-desktop-h2">
         Trusted by all

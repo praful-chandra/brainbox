@@ -5,7 +5,10 @@ import PriceCard from './PriceCard';
 const PricingSection = () => {
   return (
     <>
-      <div className="mt-[20vh] pb-20 container flex flex-col gap-9  items-center justify-center text-center">
+      <div
+        id="pricing"
+        className="mt-[20vh] pb-20 container flex flex-col gap-9  items-center justify-center text-center"
+      >
         <Pill label="Pricing" />
         <h1 className="typo-mobile-h3 md:typo-mobile-h2 xl:typo-desktop-h2">
           The Perfect Plan For YOu
