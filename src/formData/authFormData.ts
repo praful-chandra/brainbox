@@ -16,7 +16,7 @@ export const signupFormSchema = z
     password: z.string().min(1, 'Password is required'),
     confirmPassword: z.string().min(1, 'Confirm Password is required'),
   })
-  .refine((vals) => vals.password !== vals.confirmPassword, {
+  .refine((vals) => vals.password === vals.confirmPassword, {
     message: `Passwords don't match`,
     path: ['confirmPassword'],
   });
