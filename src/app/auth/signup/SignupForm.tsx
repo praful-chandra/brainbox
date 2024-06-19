@@ -1,25 +1,25 @@
 import { TextInput } from '@/components/common/formFields';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { LoginFormType } from '@/formData/loginFormData';
-import { loginAction } from '@/serverActions/authActions';
+import { SignupFormType } from '@/formData/authFormData';
+import { signupAction } from '@/serverActions/AuthActions';
 import React from 'react';
 import { UseFormReturn } from 'react-hook-form';
 
-type LoginFormProps = {
-  loginFormMethods: UseFormReturn<LoginFormType>;
+type SignupFormProps = {
+  signupFormMethods: UseFormReturn<SignupFormType>;
 };
 
-const LoginForm = ({ loginFormMethods }: LoginFormProps) => {
-  const handleFormSubmit = async (vals: LoginFormType) => {
-    return loginAction(vals);
+const LoginForm = ({ signupFormMethods }: SignupFormProps) => {
+  const handleFormSubmit = async (vals: SignupFormType) => {
+    return signupAction(vals);
   };
 
   return (
-    <Form {...loginFormMethods}>
+    <Form {...signupFormMethods}>
       <form
         className="w-full"
-        onSubmit={loginFormMethods.handleSubmit(handleFormSubmit)}
+        onSubmit={signupFormMethods.handleSubmit(handleFormSubmit)}
       >
         <article className="flex flex-col gap-7">
           <TextInput name="email" label="Email" type="email" required />
@@ -29,11 +29,17 @@ const LoginForm = ({ loginFormMethods }: LoginFormProps) => {
             type="password"
             required
           />
+          <TextInput
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            required
+          />
           <Button
             type="submit"
-            disabled={loginFormMethods.formState.isSubmitting}
+            disabled={signupFormMethods.formState.isSubmitting}
           >
-            Sign In
+            Create Account
           </Button>
         </article>
       </form>

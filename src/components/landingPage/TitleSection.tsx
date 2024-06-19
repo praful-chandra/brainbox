@@ -20,7 +20,7 @@ const TitleSection = () => {
       <h5 className="typo-mobile-h5  xl:typo-desktop-h5 text-brand-secondary-200">
         Your All-in-One Workspace Solution
       </h5>
-      <Link href="/login">
+      <Link href="/auth/login">
         <Button size="lg" rightIcon="filledRightArrow">
           Get BrainBox Free
         </Button>

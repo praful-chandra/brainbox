@@ -4,7 +4,7 @@ import { Form } from '@/components/ui/form';
 import {
   LoginFormType,
   loginFormResolvedSchema,
-} from '@/formData/loginFormData';
+} from '@/formData/authFormData';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -43,7 +43,10 @@ const LoginPage = () => {
 
         <div className="flex flex-col gap-1">
           <p className="typo-desktop-p">
-            Dont have an account ? <Button variant="link">Sign Up</Button>
+            Dont have an account ?{' '}
+            <Link href="/auth/signup">
+              <Button variant="link">Sign Up</Button>
+            </Link>
           </p>
           <Button variant="link">Forgot Password?</Button>
         </div>

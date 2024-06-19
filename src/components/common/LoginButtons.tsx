@@ -5,10 +5,12 @@ import Link from 'next/link';
 const LoginButtons = () => {
   return (
     <div className="hidden md:flex gap-4">
-      <Link href="/login">
+      <Link href="/auth/login">
         <Button variant="link">Login</Button>
       </Link>
-      <Button rightIcon="rightArrowLine">Signup</Button>
+      <Link href="/auth/signup">
+        <Button rightIcon="rightArrowLine">Signup</Button>
+      </Link>
     </div>
   );
 };
